@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { reduxForm } from 'redux-form';
 import { addPersonalData } from "../actions";
 import { personal_data_validate as validate } from "../tools/validations";
-import DataOfBirth from "../containers/DataOfBirth";
-import Gender from "../containers/Gender";
-import AboutUs from "../containers/AboutUs";
+import DataOfBirth from "../components/DataOfBirth";
+import Gender from "../components/Gender";
+import AboutUs from "../components/AboutUs";
 
 
 class PersonalData extends Component {
@@ -47,13 +47,9 @@ class PersonalData extends Component {
 
 
 
-PersonalData = reduxForm({
+export default connect(null, { addPersonalData })(reduxForm({
   form: 'account',  
   validate,
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-})(PersonalData);
-
-PersonalData = connect(null, { addPersonalData })(PersonalData);
-
-export default PersonalData;
+})(PersonalData));

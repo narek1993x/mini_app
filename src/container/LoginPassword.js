@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { reduxForm } from 'redux-form';
 import { createAccount } from "../actions";
-import LoginPasswords from "../containers/LoginPasswords";
+import LoginPasswords from "../components/LoginPasswords";
 import { login_passwords_validate as validate } from "../tools/validations";
 
 class LoginPassword extends Component {
@@ -42,13 +42,9 @@ class LoginPassword extends Component {
 
 
 
-LoginPassword = reduxForm({
+export default connect(null, { createAccount })(reduxForm({
   form: 'account',  
   validate,
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-})(LoginPassword);
-
-LoginPassword = connect(null, { createAccount })(LoginPassword);
-
-export default LoginPassword;
+})(LoginPassword));

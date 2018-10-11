@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import HeaderAndProgressBar from "./components/HeaderAndProgressBar";
-import LoginPassword from "./components/LoginPassword";
-import PersonalData from "./components/PersonalData";
-import Dashboard from "./components/Dashboard";
+import HeaderAndProgressBar from "./container/HeaderAndProgressBar";
+import LoginPassword from "./container/LoginPassword";
+import PersonalData from "./container/PersonalData";
+import Dashboard from "./container/Dashboard";
 
 
 class App extends Component {
